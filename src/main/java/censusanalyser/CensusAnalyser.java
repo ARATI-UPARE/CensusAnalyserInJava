@@ -20,14 +20,13 @@ public class CensusAnalyser {
             CsvToBean<IndiaCensusCSV> csvToBean = csvToBeanBuilder.build();
             Iterator<IndiaCensusCSV> censusCSVIterator = csvToBean.iterator();;
             int namOfEateries = 0;
-//            while (censusCSVIterator.hasNext()) {
-//                namOfEateries++;
-//               IndiaCensusCSV censusData = censusCSVIterator.next();
- //           }
+
+            // lymda expression for getting count
             Iterable <IndiaCensusCSV>indiaCensusCSVIterable=()->censusCSVIterator;
 
             namOfEateries =(int) StreamSupport.stream(indiaCensusCSVIterable.spliterator(),false).count();
             return namOfEateries;
+
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);

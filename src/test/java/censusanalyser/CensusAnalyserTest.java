@@ -9,7 +9,8 @@ public class CensusAnalyserTest {
     private static final String INDIA_CENSUS_CSV_FILE_PATH = "./src/test/resources/IndiaStateCensusData.csv";
     private static final String WRONG_CSV_FILE_PATH = "./src/main/resources/IndiaStateCensusData.csv";
 
-    @Test
+    // TC:1.1
+   @Test
     public void givenIndianCensusCSVFileReturnsCorrectRecords() {
         try {
             CensusAnalyser censusAnalyser = new CensusAnalyser();
@@ -18,6 +19,7 @@ public class CensusAnalyserTest {
         } catch (CensusAnalyserException e) { }
     }
 
+    //TC:1.2
     @Test
     public void givenIndiaCensusData_WithWrongFile_ShouldThrowException() {
         try {
