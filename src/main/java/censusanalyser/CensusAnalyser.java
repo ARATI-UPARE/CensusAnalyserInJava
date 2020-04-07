@@ -21,10 +21,7 @@ public class CensusAnalyser {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
 
             Iterator<IndiaCensusCSV> censusCSVIterator = this.getIterator(reader,IndiaCensusCSV.class);
-            int namOfEateries = 0;
-            Iterable<IndiaCensusCSV> indiaCensusCSVIterable = () -> censusCSVIterator;
-            namOfEateries = (int) StreamSupport.stream(indiaCensusCSVIterable.spliterator(), false).count();
-            return namOfEateries;
+            return getCount(censusCSVIterator);
 
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
@@ -43,10 +40,7 @@ public class CensusAnalyser {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             Iterator<IndiaStateCodeCSV> stateCodeCSVIterator = this.getIterator(reader,IndiaStateCodeCSV.class);
-            int namOfEateries = 0;
-            Iterable<IndiaStateCodeCSV> indiaCensusCSVIterable = () -> stateCodeCSVIterator;
-            namOfEateries = (int) StreamSupport.stream(indiaCensusCSVIterable.spliterator(), false).count();
-            return namOfEateries;
+            return getCount(stateCodeCSVIterator);
 
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.STATECODE_FILE_PROBLEM);
@@ -57,7 +51,12 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMETER);
             }
         }
-
+    // Method to get Count
+    private <E> int getCount(Iterator<E> iterator){
+        Iterable<E> csvIterable = () -> iterator;
+        int numberOfEnteries = (int) StreamSupport.stream(csvIterable.spliterator(),false).count();
+        return numberOfEnteries;
+    }
     // Common Code to avoid DRY Voilation of code
     public <T> Iterator getIterator(Reader reader, Class classFile){
 
@@ -68,4 +67,5 @@ public class CensusAnalyser {
         Iterator<T> stateCodeCSVIterator = csvToBean.iterator();
         return stateCodeCSVIterator;
     }
+
 }
