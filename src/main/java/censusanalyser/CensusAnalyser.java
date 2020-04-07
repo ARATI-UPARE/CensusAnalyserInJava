@@ -15,22 +15,17 @@ public class CensusAnalyser {
     // Method For IndianCensusCSV -Builder1
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
 
-        if (!csvFilePath.contains(".csv")) {
-            throw new CensusAnalyserException("Invalid file type", CensusAnalyserException.ExceptionType.INVALID_FILE_TYPE);
-        }
-
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            CsvToBeanBuilder<IndiaCensusCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(IndiaCensusCSV.class);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<IndiaCensusCSV> csvToBean = csvToBeanBuilder.build();
-            Iterator<IndiaCensusCSV> censusCSVIterator = csvToBean.iterator();
-            ;
-            int namOfEateries = 0;
+            CsvToBeanBuilder<IndiaCensusCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader); // Create Object
+            csvToBeanBuilder.withType(IndiaCensusCSV.class);                                    // which type conversion
+            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);                                 // Accept while spaces
+            CsvToBean<IndiaCensusCSV> csvToBean = csvToBeanBuilder.build();                     // to built data
+            Iterator<IndiaCensusCSV> censusCSVIterator = csvToBean.iterator();                  // Interface
+            int namOfEateries = 0;                                                              // count records
 
             // lambada expression for getting count
-            Iterable<IndiaCensusCSV> indiaCensusCSVIterable = () -> censusCSVIterator;
+            Iterable<IndiaCensusCSV> indiaCensusCSVIterable = () -> censusCSVIterator;          // iterate all data at a time
 
             namOfEateries = (int) StreamSupport.stream(indiaCensusCSVIterable.spliterator(), false).count();
             return namOfEateries;
@@ -67,8 +62,8 @@ public class CensusAnalyser {
             throw new IndiaStateCodeAnalyserException(e.getMessage(),IndiaStateCodeAnalyserException.ExceptionType.STATECODE_FILE_PROBLEM);
         }catch (RuntimeException e) {
             if (e.getMessage().contains("header!"))
-                throw new IndiaStateCodeAnalyserException(e.getMessage(),IndiaStateCodeAnalyserException.ExceptionType.INVALID_FILE_HEADER);
-            throw new IndiaStateCodeAnalyserException(e.getMessage(), IndiaStateCodeAnalyserException.ExceptionType.INVALID_FILE_HEADER);
+                throw new IndiaStateCodeAnalyserException(e.getMessage(),IndiaStateCodeAnalyserException.ExceptionType.INVALID_FILE_TYPE);
+                throw new IndiaStateCodeAnalyserException(e.getMessage(), IndiaStateCodeAnalyserException.ExceptionType.INVALID_FILE_TYPE);
         }
     }
 }

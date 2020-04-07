@@ -15,7 +15,6 @@ public class IndiaStateCodeAnalyserException extends Exception {
         super(message);
         this.type = type;
     }
-
     public IndiaStateCodeAnalyserException(String message, ExceptionType type, Throwable cause) {
         super(message, cause);
         this.type = type;
