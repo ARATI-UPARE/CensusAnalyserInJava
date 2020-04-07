@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
+import static javafx.scene.input.KeyCode.T;
+
 public class CensusAnalyser {
 
     // Method For IndianCensusCSV -Builder1
@@ -17,16 +19,10 @@ public class CensusAnalyser {
 
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            CsvToBeanBuilder<IndiaCensusCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader); // Create Object
-            csvToBeanBuilder.withType(IndiaCensusCSV.class);                                    // which type conversion
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);                                 // Accept while spaces
-            CsvToBean<IndiaCensusCSV> csvToBean = csvToBeanBuilder.build();                     // to built data
-            Iterator<IndiaCensusCSV> censusCSVIterator = csvToBean.iterator();                  // Interface
-            int namOfEateries = 0;                                                              // count records
 
-            // lambada expression for getting count
-            Iterable<IndiaCensusCSV> indiaCensusCSVIterable = () -> censusCSVIterator;          // iterate all data at a time
-
+            Iterator<IndiaCensusCSV> censusCSVIterator = this.getIterator(reader,IndiaCensusCSV.class);
+            int namOfEateries = 0;
+            Iterable<IndiaCensusCSV> indiaCensusCSVIterable = () -> censusCSVIterator;
             namOfEateries = (int) StreamSupport.stream(indiaCensusCSVIterable.spliterator(), false).count();
             return namOfEateries;
 
@@ -46,16 +42,9 @@ public class CensusAnalyser {
 
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            CsvToBeanBuilder<IndiaStateCodeCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(IndiaStateCodeCSV.class);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<IndiaStateCodeCSV> csvToBean = csvToBeanBuilder.build();
-            Iterator<IndiaStateCodeCSV> stateCodeCSVIterator = csvToBean.iterator();
+            Iterator<IndiaStateCodeCSV> stateCodeCSVIterator = this.getIterator(reader,IndiaStateCodeCSV.class);
             int namOfEateries = 0;
-
-            // lambada expression for getting count
             Iterable<IndiaStateCodeCSV> indiaCensusCSVIterable = () -> stateCodeCSVIterator;
-
             namOfEateries = (int) StreamSupport.stream(indiaCensusCSVIterable.spliterator(), false).count();
             return namOfEateries;
 
@@ -68,4 +57,15 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMETER);
             }
         }
+
+    // Common Code to avoid DRY Voilation of code
+    public <T> Iterator getIterator(Reader reader, Class classFile){
+
+        CsvToBeanBuilder<T> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
+        csvToBeanBuilder.withType(classFile);
+        csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
+        CsvToBean<T> csvToBean = csvToBeanBuilder.build();
+        Iterator<T> stateCodeCSVIterator = csvToBean.iterator();
+        return stateCodeCSVIterator;
+    }
 }
