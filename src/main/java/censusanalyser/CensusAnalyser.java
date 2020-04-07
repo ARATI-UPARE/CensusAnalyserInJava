@@ -34,14 +34,15 @@ public class CensusAnalyser {
             throw new CensusAnalyserException(e.getMessage(),
                     CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
         } catch (RuntimeException e) {
-            if (e.getMessage().contains("header!"))
-                throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);
-            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);
+            if (e.getMessage().contains("header!")){
+                throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);}
+                throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMETER);
         }
 
     }
-    // Method For IndianStateCodeCSV
-    public int loadIndiaStateCodeData(String csvFilePath) throws IndiaStateCodeAnalyserException {
+
+    // Method For IndianStateCodeCSV -Builder 2
+    public int loadIndiaStateCodeData(String csvFilePath) throws CensusAnalyserException {
 
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
@@ -59,11 +60,12 @@ public class CensusAnalyser {
             return namOfEateries;
 
         } catch (IOException e) {
-            throw new IndiaStateCodeAnalyserException(e.getMessage(),IndiaStateCodeAnalyserException.ExceptionType.STATECODE_FILE_PROBLEM);
-        }catch (RuntimeException e) {
-            if (e.getMessage().contains("header!"))
-                throw new IndiaStateCodeAnalyserException(e.getMessage(),IndiaStateCodeAnalyserException.ExceptionType.INVALID_FILE_TYPE);
-                throw new IndiaStateCodeAnalyserException(e.getMessage(), IndiaStateCodeAnalyserException.ExceptionType.INVALID_FILE_TYPE);
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.STATECODE_FILE_PROBLEM);
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("header!")){
+                throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);
+            }
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMETER);
+            }
         }
-    }
 }
