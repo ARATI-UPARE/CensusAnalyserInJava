@@ -9,8 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
-public class OpenCSVBuilder {
-    public<T> Iterator<T> getCSVFileIterator(Reader reader, Class<T> csvClass) throws CensusAnalyserException {
+public class OpenCSVBuilder implements IcsvBuilder {
+    public <T> Iterator<T> getCSVFileIterator(Reader reader, Class<T> csvClass) throws CensusAnalyserException {
 
             CsvToBeanBuilder<T> csvToBeanBuilder = new CsvToBeanBuilder<T>(reader);
             csvToBeanBuilder.withType(csvClass);
