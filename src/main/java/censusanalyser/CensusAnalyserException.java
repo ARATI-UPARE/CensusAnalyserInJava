@@ -3,13 +3,17 @@ package censusanalyser;
 public class CensusAnalyserException extends Exception {
 
     enum ExceptionType {
-        CENSUS_CSV_FILE_PATH,
-        CENSUS_FILE_PROBLEM,
         STATE_CODE_FILE_PROBLEM,
+        CENSUS_FILE_PROBLEM,
         INVALID_FILE_TYPE,
-        INVALID_FILE_DELIMETER,
-        INVALID_FILE_HEADER
+        INVALID_FILE_DELIMITER,
+        INVALID_FILE_HEADER;
+    }
 
+    //Added Parameterized Constructor to get exception name;
+    public CensusAnalyserException(String message, String name) {
+        super(message);
+        this.type = ExceptionType.valueOf(name);
     }
 
     ExceptionType type;
