@@ -14,7 +14,10 @@ public class IndiaStateCodeCSV {
     public String tin;
 
     @CsvBindByName(column = "StateCode", required = true)
-    public String stateCode;
+    public static String stateCode;
+
+    public IndiaStateCodeCSV(IndiaStateCodeCSV stateCodeCSV) {
+    }
 
     @Override
     public String toString() {
