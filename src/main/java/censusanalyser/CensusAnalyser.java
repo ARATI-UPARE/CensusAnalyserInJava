@@ -13,6 +13,8 @@ import java.util.List;
 public class CensusAnalyser {
 
     List<IndiaCensusCSV> censusCsvList = null;
+    List<IndiaStateCodeCSV> indiaStateCodeCSVList = null;
+
 
     public void checkValidCsvFile(String csvFilePath) throws CensusAnalyserException {
         if (!csvFilePath.contains(".csv")) {
@@ -24,8 +26,8 @@ public class CensusAnalyser {
     public int loadIndiaCensusData(String csvFilePath) throws CensusAnalyserException {
         this.checkValidCsvFile(csvFilePath);
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
-            IcsvBuilder csvBuilder = CSVBuilderFactory.CsvBuilder();
-            censusCsvList = csvBuilder.getList(reader,IndiaCensusCSV.class);
+            IcsvBuilder icsvBuilder = CSVBuilderFactory.CsvBuilder();
+            censusCsvList = icsvBuilder.getList(reader,IndiaCensusCSV.class);
             return censusCsvList.size();
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
@@ -39,7 +41,7 @@ public class CensusAnalyser {
 
     }
 
-    // Method to get IndiaStateCodeCSV State in alphabetical order
+    // Method to get IndiaCensusData State in alphabetical order
     public String getStateWiseCensusCodeData(String csvFilePath) throws CensusAnalyserException {
         loadIndiaCensusData(csvFilePath);
         if(censusCsvList.size()==0 || censusCsvList==null) {
@@ -51,7 +53,7 @@ public class CensusAnalyser {
         return sortedCensusJson;
     }
 
-    // Sorting Method for StateCodeCSVData
+    // Sorting Method for IndiaCensusData
     private void sortCensusData(Comparator<IndiaCensusCSV> censusCSVComparator) {
         for (int outLoop = 0; outLoop < censusCsvList.size()-1; outLoop++){
             for ( int innerLoop=0; innerLoop < censusCsvList.size()-outLoop-1; innerLoop++){
@@ -68,20 +70,43 @@ public class CensusAnalyser {
     // Method For IndianStateCodeCSV -Builder 2
     public int loadIndiaStateCodeData(String csvFilePath) throws CensusAnalyserException {
         this.checkValidCsvFile(csvFilePath);
-
         try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
-            IcsvBuilder csvBuilder = CSVBuilderFactory.CsvBuilder();
-            List<IndiaStateCodeCSV> stateCodeCSVList = csvBuilder.getList(reader, IndiaStateCodeCSV.class);
-            return stateCodeCSVList.size();
+            IcsvBuilder icsvBuilder = CSVBuilderFactory.CsvBuilder();
+            indiaStateCodeCSVList = icsvBuilder.getList(reader,IndiaStateCodeCSV.class);
+            return indiaStateCodeCSVList.size();
         } catch (IOException e) {
-            throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.STATE_CODE_FILE_PROBLEM);
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.STATE_CODE_FILE_PROBLEM);
         } catch (RuntimeException e) {
-            if (e.getMessage().contains("header!"))
-                throw  new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);
-            throw new CensusAnalyserException(e.getMessage(),CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMITER);
-        }catch (CsvFileBuilderException e) {
+            if (e.getMessage().contains("header!")) {
+                throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);
+            }
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMITER);
+        } catch (CsvFileBuilderException e) {
             throw new CensusAnalyserException(e.getMessage(), e.type.name());
+        }
+    }
+    // Method to get IndiaStateCodeCSV State in alphabetical order
+    public String getStateWiseSortedStateCodeData(String csvFilePath) throws CensusAnalyserException {
+        loadIndiaStateCodeData(csvFilePath);
+        if(indiaStateCodeCSVList.size()==0 || indiaStateCodeCSVList==null)
+            throw new CensusAnalyserException("No Data", CensusAnalyserException.ExceptionType.NO_CENSUS_DATA);
+        Comparator<IndiaStateCodeCSV> indiaStateCodeCSVComparator = Comparator.comparing(census -> census.stateCode);
+        this.sortStateCode(indiaStateCodeCSVComparator);
+        String sortedCensusJson = new Gson().toJson(indiaStateCodeCSVList);
+        return sortedCensusJson;
+    }
+
+    // Sorting Method for StateCodeCSVData
+    private void sortStateCode(Comparator<IndiaStateCodeCSV> indiaStateCodeCSVComparator) {
+        for (int outLoop = 0; outLoop < indiaStateCodeCSVList.size()-1; outLoop++){
+            for ( int innerLoop=0; innerLoop < indiaStateCodeCSVList.size()-outLoop-1; innerLoop++){
+                IndiaStateCodeCSV stateCodeCSV1 = indiaStateCodeCSVList.get(innerLoop);
+                IndiaStateCodeCSV stateCodeCSV2 = indiaStateCodeCSVList.get(innerLoop+1);
+                if (indiaStateCodeCSVComparator.compare(stateCodeCSV1,stateCodeCSV2)>0){
+                    indiaStateCodeCSVList.set(innerLoop,stateCodeCSV2);
+                    indiaStateCodeCSVList.set(innerLoop+1,stateCodeCSV1);
+                }
+            }
         }
     }
 
