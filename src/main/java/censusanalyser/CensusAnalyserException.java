@@ -3,6 +3,7 @@ package censusanalyser;
 public class CensusAnalyserException extends Exception {
 
     enum ExceptionType {
+        NO_CENSUS_DATA,
         STATE_CODE_FILE_PROBLEM,
         CENSUS_FILE_PROBLEM,
         INVALID_FILE_TYPE,

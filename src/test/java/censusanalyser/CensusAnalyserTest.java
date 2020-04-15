@@ -1,5 +1,6 @@
 package censusanalyser;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -112,5 +113,32 @@ public class CensusAnalyserTest {
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER,e.type);
         }
+    }
+
+    // UC:3
+    @Test
+    public void givenIndiaCensusData_whenSorted_shouldReturnSortedDataStartState() {
+        try {
+            censusAnalyser.loadIndiaCensusData(CENSUS_CSV_FILE_PATH);
+            String sortedCensusData = censusAnalyser.getStateWiseCensusCodeData(CENSUS_CSV_FILE_PATH);
+            IndiaCensusCSV[] censusCsv = new Gson().fromJson(sortedCensusData,IndiaCensusCSV[].class);
+            Assert.assertEquals("Andhra Pradesh",censusCsv[0].state);
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void givenIndiaCensusData_whenSorted_shouldReturnSortedDataEndState() {
+        try {
+            censusAnalyser.loadIndiaCensusData(CENSUS_CSV_FILE_PATH);
+            String sortedCensusData = censusAnalyser.getStateWiseCensusCodeData(CENSUS_CSV_FILE_PATH);
+            IndiaCensusCSV[] censusCsv = new Gson().fromJson(sortedCensusData,IndiaCensusCSV[].class);
+            Assert.assertEquals("West Bengal",censusCsv[28].state);
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+
     }
 }
