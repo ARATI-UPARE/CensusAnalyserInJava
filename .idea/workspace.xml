@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c80ee4f-b49f-4760-94c9-81f9af2ef2aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/censusanalyser/IndiaCensusCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/censusanalyser/IndiaCensusCSV.java" afterDir="false" />
@@ -51,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="340">
+              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding>
                 <element signature="method#checkValidCsvFile#0;class#CensusAnalyser#0" />
               </folding>
@@ -84,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="193" selection-start-line="193" selection-end-line="193" />
+            <state relative-caret-position="323">
+              <caret line="204" column="91" lean-forward="true" selection-start-line="204" selection-start-column="91" selection-end-line="204" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,8 +133,8 @@
         <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyserException.java" />
         <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CSVBuilderFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/censusanalyser/IndiaCensusCSVDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" />
         <option value="$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java" />
       </list>
     </option>
   </component>
@@ -156,7 +155,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587111496869" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587112059931" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java/censusanalyser" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MoodAnalyzer/src" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -191,7 +190,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult">
+  <component name="RunManager" selected="JUnit.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult">
     <configuration name="CensusAnalyserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CensusAnalyser.test" />
       <extension name="coverage">
@@ -207,22 +206,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CensusAnalyserTest.givenIndiaStateCode_whenSorted_shouldReturnSortedDataStartCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CensusAnalyser.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="censusanalyser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="censusanalyser" />
-      <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
-      <option name="METHOD_NAME" value="givenIndiaStateCode_whenSorted_shouldReturnSortedDataStartCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CensusAnalyserTest.givenIndianCensusCSVFileReturnsCorrectRecords" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CensusAnalyser.test" />
       <extension name="coverage">
@@ -234,6 +217,22 @@
       <option name="PACKAGE_NAME" value="censusanalyser" />
       <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
       <option name="METHOD_NAME" value="givenIndianCensusCSVFileReturnsCorrectRecords" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CensusAnalyserTest.givenIndianCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CensusAnalyser.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="censusanalyser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="censusanalyser" />
+      <option name="MAIN_CLASS_NAME" value="censusanalyser.CensusAnalyserTest" />
+      <option name="METHOD_NAME" value="givenIndianCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -273,11 +272,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult" />
         <item itemvalue="JUnit.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult" />
         <item itemvalue="JUnit.CensusAnalyserTest" />
         <item itemvalue="JUnit.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulation_ShouldReturnDescendinglySortedResult" />
         <item itemvalue="JUnit.CensusAnalyserTest.givenIndianCensusCSVFileReturnsCorrectRecords" />
-        <item itemvalue="JUnit.CensusAnalyserTest.givenIndiaStateCode_whenSorted_shouldReturnSortedDataStartCode" />
       </list>
     </recent_temporary>
   </component>
@@ -307,14 +306,11 @@
       <workItem from="1587054442811" duration="7700000" />
       <workItem from="1587100926309" duration="679000" />
       <workItem from="1587103551851" duration="1068000" />
-      <workItem from="1587107191973" duration="2326000" />
+      <workItem from="1587107191973" duration="2884000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CensusAnalyserTest_givenIndiaCensusData_whenSorted_shouldReturnSortedDataStartState - 2020.04.16 at 23h 48m 45s.xml">
-      <configuration name="CensusAnalyserTest.givenIndiaCensusData_whenSorted_shouldReturnSortedDataStartState" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CensusAnalyserTest_givenIndiaStateCode_whenSorted_shouldReturnSortedDataStartCode - 2020.04.17 at 00h 18m 05s.xml">
       <configuration name="CensusAnalyserTest.givenIndiaStateCode_whenSorted_shouldReturnSortedDataStartCode" configurationId="JUnit" />
     </history-entry>
@@ -342,9 +338,12 @@
     <history-entry file="CensusAnalyserTest_givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult - 2020.04.17 at 13h 45m 44s.xml">
       <configuration name="CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CensusAnalyserTest_givenIndianCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult - 2020.04.17 at 13h 57m 29s.xml">
+      <configuration name="CensusAnalyserTest.givenIndianCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104694000" />
+    <option name="totallyTimeSpent" value="105252000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -427,18 +426,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java</url>
-          <line>121</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_241/src.zip!/java/lang/Iterable.java">
@@ -672,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/censusanalyser/CensusAnalyser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="340">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
           <folding>
             <element signature="method#checkValidCsvFile#0;class#CensusAnalyser#0" />
           </folding>
@@ -682,8 +669,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="193" selection-start-line="193" selection-end-line="193" />
+        <state relative-caret-position="323">
+          <caret line="204" column="91" lean-forward="true" selection-start-line="204" selection-start-column="91" selection-end-line="204" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
