@@ -44,6 +44,17 @@ public class CensusAnalyser {
         }
     }
 
+    public String getPopulationWiseSortedData(String csvFilePath) throws CensusAnalyserException {
+        loadIndiaCensusData(csvFilePath);
+        if (censusCSVDaoList == null || censusCSVDaoList.size() == 0) {
+            throw new CensusAnalyserException("NO_CENSUS_DATA", CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }
+        Comparator<IndiaCensusCSVDao> censusComparator = Comparator.comparing(IndiaCensusCSVDao -> IndiaCensusCSVDao.population);
+        this.sortData(censusComparator);
+        Collections.reverse(censusCSVDaoList);
+        String sortedStateJsonData = new Gson().toJson(censusCSVDaoList);
+        return sortedStateJsonData;
+    }
    // Method to get IndiaCensus file State in alphabetical order
     public String getStateWiseCensusCodeData(String csvFilePath) throws CensusAnalyserException {
         loadIndiaCensusData(csvFilePath);

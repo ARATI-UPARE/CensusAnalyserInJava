@@ -169,4 +169,17 @@ public class CensusAnalyserTest {
     }
 
 
+    // UC:5
+    @Test
+    public void givenIndianCensusData_WhenSortedOnPopulation_ShouldReturnDescendinglySortedResult() {
+        try {
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            String sortedData = censusAnalyser.getPopulationWiseSortedData(CENSUS_CSV_FILE_PATH);
+            IndiaCensusCSV[] censusCSV = new Gson().fromJson(sortedData, IndiaCensusCSV[].class);
+            System.out.println(censusCSV[0]);
+            Assert.assertEquals(199812341, censusCSV[0].population);
+        } catch (CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
+        }
+    }
 }
