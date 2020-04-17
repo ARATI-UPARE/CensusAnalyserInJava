@@ -22,7 +22,7 @@ public class CensusAnalyserException extends Exception {
         this.type = type;
     }
 
-    public CensusAnalyserException(String message, CsvFileBuilderException.ExceptionType type ) {
+    public CensusAnalyserException(String message, CsvFileBuilderException.ExceptionType type) {
         super(message);
         this.type = ExceptionType.valueOf(type.name());
     }
