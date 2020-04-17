@@ -44,6 +44,20 @@ public class CensusAnalyser {
         }
     }
 
+    // Method To sort Census Data according to population density wise
+    public String getPopulationDensityWiseSortedData(String csvFilePath) throws CensusAnalyserException {
+        loadIndiaCensusData(csvFilePath);
+        if (censusCSVDaoList == null || censusCSVDaoList.size() == 0) {
+            throw new CensusAnalyserException("NO_CENSUS_DATA", CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        }
+        Comparator<IndiaCensusCSVDao> censusComparator = Comparator.comparing(IndiaCensusCSVDao -> IndiaCensusCSVDao.densityPerSqKm);
+        this.sortData(censusComparator);
+        Collections.reverse(censusCSVDaoList);
+        String sortedStateJsonData = new Gson().toJson(censusCSVDaoList);
+        return sortedStateJsonData;
+    }
+
+    // Method To sort Census Data according to population wise
     public String getPopulationWiseSortedData(String csvFilePath) throws CensusAnalyserException {
         loadIndiaCensusData(csvFilePath);
         if (censusCSVDaoList == null || censusCSVDaoList.size() == 0) {
