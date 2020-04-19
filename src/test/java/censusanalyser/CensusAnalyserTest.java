@@ -5,18 +5,22 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CensusAnalyserTest {
-
+    // Constant for IndiaCensusData
     private static final String CENSUS_CSV_FILE_PATH = "./src/test/resources/IndiaStateCensusData.csv";
     private static final String WRONG_CSV_FILE_PATH = "./src/main/resources/IndiaStateCensusData.csv";
     private static final String WRONG_CSV_FILE_TYPE = "./src/test/resources/IndianStateCensusData.txt";
     private static final String WRONG_CSV_FILE_DELIMITER = "./src/test/resources/IndianStateCensusInvalidDelimiter.csv";
     private static final String WRONG_CSV_FILE_HEADER = "./src/test/resources/IndianStateCensusInvalidHeader.csv";
 
+    // Constant for IndiaStateCode
     private static final String INDIA_STATE_CODE_CSV_FILE_PATH = "./src/test/resources/IndiaStateCode.csv";
     private static final String WRONG_STATE_CODE_CSV_FILE_PATH = "./src/main/resources/IndiaStateCode.csv";
     private static final String WRONG_STATE_CODE_CSV_FILE_TYPE = "./src/test/resources/IndianStateCodeData.txt";
     private static final String WRONG_STATE_CODE_CSV_FILE_DELIMITER = "./src/test/resources/IndiaStateCodeInvalidDelimiter.csv";
     private static final String WRONG_STATE_CODE_CSV_FILE_HEADER = "./src/test/resources/IndianStateCodeInvalidHeader.csv";
+
+    // Constant for US Census Data
+    private static final String US_CENSUS_CSV_FILE_PATH = "src/test/resources/USCensusFile.csv";
 
     CensusAnalyser censusAnalyser = new CensusAnalyser();
 
@@ -208,5 +212,16 @@ public class CensusAnalyserTest {
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
         }
+    }
+
+    // UC:8
+    @Test
+    public void givenUsCensusCSVFile_ShouldReturnsCorrectRecords() {
+        try {
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            int numOfRecords = censusAnalyser.loadUSCensusData(US_CENSUS_CSV_FILE_PATH);
+            System.out.println(numOfRecords);
+            Assert.assertEquals(51,numOfRecords);
+        } catch (CensusAnalyserException e) { }
     }
 }

@@ -140,4 +140,27 @@ public class CensusAnalyser {
      String sortedCensusJson = new Gson().toJson(censusCSVDaoList);
      return sortedCensusJson;
      }
+
+    // Method To Load USCensusCSV -Builder3 (Ability To Handle US Census Data)
+    public int loadUSCensusData(String csvFilePath) throws CensusAnalyserException {
+        this.checkValidCsvFile(csvFilePath);
+        int numOfRecords = 0;
+        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
+            IcsvBuilder csvBuilder = CSVBuilderFactory.CsvBuilder();
+            Iterator<USCensusCSV> usCensusCSVIterator = csvBuilder.getIterator(reader, USCensusCSV.class);
+            while (usCensusCSVIterator.hasNext()) {
+                USCensusCSV USCensus = usCensusCSVIterator.next();
+                numOfRecords++;
+            }
+        }catch (IOException e) {
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("header!"))
+                throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_HEADER);
+            throw new CensusAnalyserException(e.getMessage(), CensusAnalyserException.ExceptionType.INVALID_FILE_DELIMITER);
+        } catch (CsvFileBuilderException e) {
+            e.printStackTrace();
+        }
+        return numOfRecords;
+    }
 }
