@@ -10,7 +10,8 @@ public class CensusAnalyserException extends Exception {
         CENSUS_FILE_PROBLEM,
         INVALID_FILE_TYPE,
         INVALID_FILE_DELIMITER,
-        INVALID_FILE_HEADER;
+        INVALID_FILE_HEADER,
+        INVALID_COUNTRY;
     }
 
     //Added Parameterized Constructor to get exception name;

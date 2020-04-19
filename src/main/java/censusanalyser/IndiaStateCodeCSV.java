@@ -25,4 +25,36 @@ public class IndiaStateCodeCSV {
                 ", StateCode='" + stateCode + '\'' +
                 '}';
     }
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
+    }
+
+    public String getTin() {
+        return tin;
+    }
+
+    public void setTin(String tin) {
+        this.tin = tin;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getSrNo() {
+        return srNo;
+    }
+
+    public void setSrNo(String srNo) {
+        this.srNo = srNo;
+    }
+
 }
