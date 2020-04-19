@@ -180,7 +180,6 @@ public class CensusAnalyserTest {
     @Test
     public void givenIndianCensusData_WhenSortedOnPopulation_ShouldReturnDescendinglySortedResult() {
         try {
-            CensusAnalyser censusAnalyser = new CensusAnalyser();
             String sortedData = censusAnalyser.getPopulationWiseSortedData(INDIA,CENSUS_CSV_FILE_PATH);
             IndiaCensusCSV[] censusCSV = new Gson().fromJson(sortedData, IndiaCensusCSV[].class);
             System.out.println(censusCSV[0]);
@@ -227,4 +226,20 @@ public class CensusAnalyserTest {
             Assert.assertEquals(51,numOfRecords);
         } catch (CensusAnalyserException e) { }
     }
+
+    // UC:9
+    @Test
+    public void givenUSCensusCSVFile_withRandomStateNames_ShouldReturnInNameSortedOrder() {
+        try {
+            CensusAnalyser censusAnalyser = new CensusAnalyser();
+            String stateNameWiseSortedCensusData = censusAnalyser.getStateNameWiseSortedCensusData(US, US_CENSUS_CSV_FILE_PATH);
+            System.out.println(stateNameWiseSortedCensusData);
+            USCensusCSV[] censusCSV = new Gson().fromJson(stateNameWiseSortedCensusData, USCensusCSV[].class);
+            Assert.assertEquals("Alabama", censusCSV[0].getState());
+        } catch (CensusAnalyserException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
