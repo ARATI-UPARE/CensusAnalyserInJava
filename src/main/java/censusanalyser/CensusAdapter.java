@@ -25,24 +25,22 @@ public abstract class CensusAdapter {
             Iterator<T> csvFileIterator = csvBuilder.getIterator(reader, censusCSVClass);
             Iterable<T> csvFileIterable = () -> csvFileIterator;
             if (censusCSVClass.getName().contains("IndiaCensusCSV")) {
-                while (csvFileIterator.hasNext()) {
-                    IndiaCensusCSVDao censusDAO = new IndiaCensusCSVDao((IndiaCensusCSV) csvFileIterator.next());
-                    csvFileMap.put(censusDAO.getState(), censusDAO);
-                }
-            } else if
-            (censusCSVClass.getName().contains("USCensusCSV")) {
-
                 StreamSupport.stream(csvFileIterable.spliterator(), false)
-                        .map(USCensusCSV.class::cast)
+                    .map(IndiaCensusCSV.class::cast)
+                    .forEach(censusCSV -> csvFileMap.put(censusCSV.getState(), new IndiaCensusCSVDao(censusCSV)));
+           } else if
+            (censusCSVClass.getName().contains("USCensusCSV")) {
+                StreamSupport.stream(csvFileIterable.spliterator(), false)
+                       .map(USCensusCSV.class::cast)
                         .forEach(censusCSV -> csvFileMap.put(censusCSV.state, new IndiaCensusCSVDao(censusCSV)));
             }
             else if
             (censusCSVClass.getName().contains("IndiaStateCodeCSV")) {
-
                 StreamSupport.stream(csvFileIterable.spliterator(), false)
                         .map(IndiaStateCodeCSV.class::cast)
                         .forEach(censusCSV -> csvFileMap.put(censusCSV.getStateCode(), new IndiaCensusCSVDao(censusCSV)));
-            }
+           }
+  //          mapCsvFileToCsvDao(csvFileIterable,censusCSVClass);
             return csvFileMap;
         } catch (RuntimeException e) {
             if (e.getMessage().contains("header!"))
@@ -57,4 +55,7 @@ public abstract class CensusAdapter {
         }
         return csvFileMap;
     }
-}
+
+   // protected abstract Map<String,IndiaCensusCSVDao> mapCsvFileToCsvDao(Iterable iterable, Class censusCSVClass);
+
+    }

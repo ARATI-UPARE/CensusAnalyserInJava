@@ -4,15 +4,15 @@ public class IndiaCensusCSVDao {
 
     private String landArea;
     private String waterArea;
-    private String housingUnits;
+    private int housingUnits;
     private String stateID;
-    private String housingDensity;
+    private double housingDensity;
 
     private String srNo;
     private String state;
-    private String population;
-    private String areaInSqKm;
-    private String densityPerSqKm;
+    private int population;
+    private double areaInSqKm;
+    private double densityPerSqKm;
     private String stateCode;
     private String tin;
 
@@ -34,8 +34,8 @@ public class IndiaCensusCSVDao {
     public IndiaCensusCSVDao(USCensusCSV usCensusCSV) {
         this.state = usCensusCSV.getState();
         this.population = usCensusCSV.getPopulation();
-        this.areaInSqKm = usCensusCSV.getArea();
-        this.densityPerSqKm = usCensusCSV.getPopulationDensity();
+        this.areaInSqKm = usCensusCSV.getAreaInSqKm();
+        this.densityPerSqKm = usCensusCSV.getDensityPerSqKm();
         this.stateID = usCensusCSV.getStateID();
         this.housingDensity = usCensusCSV.getHousingDensity();
         this.housingUnits=usCensusCSV.getHousingUnits();
@@ -75,27 +75,67 @@ public class IndiaCensusCSVDao {
         this.srNo = srNo;
     }
 
-    public String getDensityPerSqKm() {
+    public double getDensityPerSqKm() {
         return densityPerSqKm;
     }
 
-    public void setDensityPerSqKm(String densityPerSqKm) {
+    public void setDensityPerSqKm(double densityPerSqKm) {
         this.densityPerSqKm = densityPerSqKm;
     }
 
-    public String getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(int population) {
         this.population = population;
     }
 
-    public String getAreaInSqKm() {
+    public double getAreaInSqKm() {
         return areaInSqKm;
     }
 
-    public void setAreaInSqKm(String areaInSqKm) {
+    public void setAreaInSqKm(double areaInSqKm) {
         this.areaInSqKm = areaInSqKm;
+    }
+
+    public int getHousingUnits() {
+        return housingUnits;
+    }
+
+    public void setHousingUnits(int housingUnits) {
+        this.housingUnits = housingUnits;
+    }
+
+    public String getWaterArea() {
+        return waterArea;
+    }
+
+    public void setWaterArea(String waterArea) {
+        this.waterArea = waterArea;
+    }
+
+    public String getLandArea() {
+        return landArea;
+    }
+
+    public void setLandArea(String landArea) {
+        this.landArea = landArea;
+    }
+
+    public double getHousingDensity() {
+        return housingDensity;
+    }
+
+    public void setHousingDensity(double housingDensity) {
+        this.housingDensity = housingDensity;
+    }
+
+    public String getStateID() {
+        return stateID;
+    }
+
+    public void setStateID(String stateID) {
+        this.stateID = stateID;
     }
 }

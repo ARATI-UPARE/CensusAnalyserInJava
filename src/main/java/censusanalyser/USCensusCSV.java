@@ -11,16 +11,16 @@ public class USCensusCSV {
         public String state;
 
         @CsvBindByName(column = "Population Density")
-        private String populationDensity;
+        private double densityPerSqKm;
 
         @CsvBindByName(column = "Population")
-        private String population;
+        private int population;
 
         @CsvBindByName(column = "Total area")
-        private String area;
+        private double areaInSqKm;
 
         @CsvBindByName(column = "Housing units")
-        private String housingUnits;
+        private int housingUnits;
 
         @CsvBindByName(column = "Water area")
         private String waterArea;
@@ -29,16 +29,17 @@ public class USCensusCSV {
         private String landArea;
 
         @CsvBindByName(column = "Housing Density")
-        private String housingDensity;
+        private double housingDensity;
+
 
     @Override
     public String toString() {
         return "USCensusCSV{" +
                 "State Id='" + stateID + '\'' +
                 ", State='" + state + '\'' +
-                ", Population Density='" + populationDensity + '\'' +
+                ", Population Density='" + densityPerSqKm + '\'' +
                 ", Population='" + population + '\'' +
-                ", Total area='" + area + '\'' +
+                ", Total area='" + areaInSqKm + '\'' +
                 ", Housing units='" + housingUnits + '\'' +
                 ", Water area='" + waterArea + '\'' +
                 ", Land Area='" + landArea + '\'' +
@@ -46,12 +47,19 @@ public class USCensusCSV {
 
                 '}';
     }
+    public double getDensityPerSqKm() {
+        return densityPerSqKm;
+    }
 
-    public String getHousingDensity() {
+    public void setDensityPerSqKm(double densityPerSqKm) {
+        this.densityPerSqKm = densityPerSqKm;
+    }
+
+    public double getHousingDensity() {
         return housingDensity;
     }
 
-    public void setHousingDensity(String housingDensity) {
+    public void setHousingDensity(double housingDensity) {
         this.housingDensity = housingDensity;
     }
 
@@ -71,37 +79,31 @@ public class USCensusCSV {
         this.waterArea = waterArea;
     }
 
-    public String getHousingUnits() {
+    public int getHousingUnits() {
         return housingUnits;
     }
 
-    public void setHousingUnits(String housingUnits) {
+    public void setHousingUnits(int housingUnits) {
         this.housingUnits = housingUnits;
     }
 
-    public String getArea() {
-        return area;
+    public double getAreaInSqKm() {
+        return areaInSqKm;
     }
 
-    public void setArea(String area) {
-        this.area = area;
+    public void setAreaInSqKm(double area) {
+        this.areaInSqKm = area;
     }
 
-    public String getPopulation() {
+    public int getPopulation() {
         return population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(int population) {
         this.population = population;
     }
 
-    public String getPopulationDensity() {
-        return populationDensity;
-    }
 
-    public void setPopulationDensity(String populationDensity) {
-        this.populationDensity = populationDensity;
-    }
 
     public String getState() {
         return state;
