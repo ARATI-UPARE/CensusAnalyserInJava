@@ -79,7 +79,7 @@ public class CensusAnalyser {
         return sortedCensusJson;
     }
 
-    // Method To sort US Data
+    // Method To sort US Data according to State Name
     public  String getStateNameWiseSortedCensusData(Country country, String csvFilePath) throws CensusAnalyserException {
         loadCensusData(country, csvFilePath);
         if (csvFileList == null || csvFileList.size() == 0) {
@@ -91,6 +91,7 @@ public class CensusAnalyser {
         return toJson;
     }
 
+    // Method To Sort Census Data State ID wise.
     public String getStateIDWiseSortedCensusData(Country country, String csvFilePath) throws CensusAnalyserException {
         loadCensusData(country, csvFilePath);
         if (csvFileList == null || csvFileList.size() == 0) {
@@ -102,6 +103,7 @@ public class CensusAnalyser {
         return sortedStateCodeJsonData;
     }
 
+    // Method To Sort Census Data acccording to Housing Units.
     public String getHousingUnitsWiseSortedCensusData(Country country, String csvFilePath) throws CensusAnalyserException {
         loadCensusData(country, csvFilePath);
         if (csvFileList == null || csvFileList.size() == 0) {
@@ -113,6 +115,7 @@ public class CensusAnalyser {
         String sortedStateCodeJsonData = new Gson().toJson(csvFileList);
         return sortedStateCodeJsonData;
     }
+
     private  void sortData(Comparator<IndiaCensusCSVDao> censusCSVComparator) {
         for (int i = 0; i < csvFileList.size() - 1; i++) {
             for (int j = 0; j < csvFileList.size() - i - 1; j++) {

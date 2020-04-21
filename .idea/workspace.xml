@@ -97,7 +97,7 @@
       <recent name="C:\Users\Lohar\Desktop\JAVA\CensusAnalyser\CensusAnalyser" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CensusAnalyserTest">
+  <component name="RunManager" selected="Gradle.CensusAnalyserTest.givenIndianCensusData_whenSortedOnDualSort_populationAndDensity_shouldReturnSortedList">
     <configuration name="CensusAnalyserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -118,12 +118,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CensusAnalyserTest.givenIndianCensusData_whenSortedOnDualSort_populationAndDensity_shouldReturnSortedList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;censusanalyser.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult&quot;" />
+        <option name="scriptParameters" value="--tests &quot;censusanalyser.CensusAnalyserTest.givenIndianCensusData_whenSortedOnDualSort_populationAndDensity_shouldReturnSortedList&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -200,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CensusAnalyserTest.givenIndianCensusData_whenSortedOnDualSort_populationAndDensity_shouldReturnSortedList" />
+        <item itemvalue="Gradle.CensusAnalyserTest.givenUSCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult" />
         <item itemvalue="Gradle.CensusAnalyserTest" />
         <item itemvalue="Gradle.CensusAnalyserTest.givenUSCensusData_WhenSortedOnHousingUnits_ShouldAscendinglySortedResult" />
-        <item itemvalue="Gradle.CensusAnalyserTest.givenUSCensusData_WhenSortedOnArea_ShouldReturnDescendinglySortedResult" />
         <item itemvalue="Gradle.CensusAnalyserTest.givenUSCensusData_WhenSortedOnPopulationDensity_ShouldAscendinglySortedResult" />
-        <item itemvalue="Gradle.CensusAnalyserTest.givenIndianCensusData_WhenSortedOnPopulationDensity_ShouldReturnDescendinglySortedResult" />
       </list>
     </recent_temporary>
   </component>
@@ -279,46 +279,46 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="571" y="281" width="393" height="265" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1587378286224" />
-    <state width="1493" height="237" key="GridCell.Tab.0.bottom" timestamp="1587433666215">
+    <state width="1493" height="237" key="GridCell.Tab.0.bottom" timestamp="1587437190131">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587433666215" />
-    <state width="1493" height="237" key="GridCell.Tab.0.center" timestamp="1587433666215">
+    <state width="1493" height="237" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587437190131" />
+    <state width="1493" height="237" key="GridCell.Tab.0.center" timestamp="1587437190131">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587433666215" />
-    <state width="1493" height="237" key="GridCell.Tab.0.left" timestamp="1587433666215">
+    <state width="1493" height="237" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587437190131" />
+    <state width="1493" height="237" key="GridCell.Tab.0.left" timestamp="1587437190131">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587433666215" />
-    <state width="1493" height="237" key="GridCell.Tab.0.right" timestamp="1587433666215">
+    <state width="1493" height="237" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587437190131" />
+    <state width="1493" height="237" key="GridCell.Tab.0.right" timestamp="1587437190131">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="237" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587433666215" />
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1587432084342">
+    <state width="1493" height="237" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587437190131" />
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1587437120896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587432084342" />
-    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1587432084342">
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587437120896" />
+    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1587437120896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587432084342" />
-    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1587432084342">
+    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587437120896" />
+    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1587437120896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587432084342" />
-    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1587432084342">
+    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587437120896" />
+    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1587437120896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587432084342" />
+    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587437120896" />
     <state x="277" y="57" key="SettingsEditor" timestamp="1587307371157">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587307371157" />
-    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1587430882688">
+    <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1587437088605">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1587430882688" />
+    <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1587437088605" />
     <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1587428635016">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -331,17 +331,6 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="475" y="169" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1587328456096" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/censusanalyser/CensusAnalyserTest.java</url>
-          <line>270</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

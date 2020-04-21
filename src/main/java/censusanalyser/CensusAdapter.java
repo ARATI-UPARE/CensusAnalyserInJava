@@ -40,7 +40,6 @@ public abstract class CensusAdapter {
                         .map(IndiaStateCodeCSV.class::cast)
                         .forEach(censusCSV -> csvFileMap.put(censusCSV.getStateCode(), new IndiaCensusCSVDao(censusCSV)));
            }
-  //          mapCsvFileToCsvDao(csvFileIterable,censusCSVClass);
             return csvFileMap;
         } catch (RuntimeException e) {
             if (e.getMessage().contains("header!"))
